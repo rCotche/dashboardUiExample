@@ -1,6 +1,8 @@
 import 'package:dashboard_ui_example/widgets/side_menu_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/dashboard_widget.dart';
+
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
@@ -10,7 +12,7 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(
         child: Row(
           children: [
-            Expanded(
+            const Expanded(
               // 2/12
               //*100
               //16%
@@ -19,14 +21,12 @@ class MainScreen extends StatelessWidget {
                 child: SideMenuWidget(),
               ),
             ),
-            Expanded(
+            const Expanded(
               // 7/12
               //*100
               //58%
               flex: 7,
-              child: Container(
-                color: Colors.blue,
-              ),
+              child: DashboardWidget(),
             ),
             Expanded(
               // 3/12
