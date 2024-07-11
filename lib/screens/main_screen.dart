@@ -20,6 +20,14 @@ class MainScreen extends StatelessWidget {
             )
           //sinon c'est un desktop
           : null,
+      //si c'est un mobile
+      endDrawer: Responsive.isMobile(context)
+          ? SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: const SummaryWidget(),
+            )
+          //sinon
+          : null,
       body: SafeArea(
         child: Row(
           children: [
