@@ -33,9 +33,7 @@ class MainScreen extends StatelessWidget {
               //*100
               //25%
               flex: 3,
-              child: Container(
-                color: Colors.green,
-              ),
+              child: SummaryWidget(),
             ),
           ],
         ),
