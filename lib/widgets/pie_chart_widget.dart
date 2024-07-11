@@ -13,6 +13,7 @@ class Chart extends StatelessWidget {
 
     return SizedBox(
       height: 200,
+      //stack permet de superposer des widgets
       child: Stack(
         children: [
           //fl_chart
@@ -21,10 +22,11 @@ class Chart extends StatelessWidget {
               sectionsSpace: 0,
               centerSpaceRadius: 70,
               startDegreeOffset: -90,
-              //
+              //access tge data
               sections: pieChartData.paiChartSelectionDatas,
             ),
           ),
+          //
           //à l'interieur du pie chart
           Positioned.fill(
             child: Column(
