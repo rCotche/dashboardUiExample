@@ -1,3 +1,4 @@
+import 'package:dashboard_ui_example/util/responsive.dart';
 import 'package:dashboard_ui_example/widgets/side_menu_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,33 +10,44 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final isDesktop = Responsive.isDesktop(context);
+    return Scaffold(
+      //si c'est pas un desktop
+      drawer: !isDesktop
+          ? const SizedBox(
+              width: 250,
+              child: SideMenuWidget(),
+            )
+          //sinon c'est un desktop
+          : null,
       body: SafeArea(
         child: Row(
           children: [
-            Expanded(
-              // 2/12
-              //*100
-              //16%
-              flex: 2,
-              child: SizedBox(
-                child: SideMenuWidget(),
+            if (isDesktop)
+              const Expanded(
+                // 2/12
+                //*100
+                //16%
+                flex: 2,
+                child: SizedBox(
+                  child: SideMenuWidget(),
+                ),
               ),
-            ),
-            Expanded(
+            const Expanded(
               // 7/12
               //*100
               //58%
               flex: 7,
               child: DashboardWidget(),
             ),
-            Expanded(
-              // 3/12
-              //*100
-              //25%
-              flex: 3,
-              child: SummaryWidget(),
-            ),
+            if (isDesktop)
+              const Expanded(
+                // 3/12
+                //*100
+                //25%
+                flex: 3,
+                child: SummaryWidget(),
+              ),
           ],
         ),
       ),

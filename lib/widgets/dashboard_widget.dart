@@ -1,3 +1,5 @@
+import 'package:dashboard_ui_example/util/responsive.dart';
+import 'package:dashboard_ui_example/widgets/summary_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'activity_details_card.dart';
@@ -10,34 +12,35 @@ class DashboardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 18.0),
+        padding: const EdgeInsets.symmetric(horizontal: 18.0),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 18,
             ),
             //
-            //HeaderWidget(),
-            SizedBox(
+            const HeaderWidget(),
+            const SizedBox(
               height: 18,
             ),
             //
-            ActivityDetailsCard(),
-            SizedBox(
+            const ActivityDetailsCard(),
+            const SizedBox(
               height: 18,
             ),
             //
-            LineChartCard(),
-            SizedBox(
+            const LineChartCard(),
+            const SizedBox(
               height: 18,
             ),
             //
-            BarGraphCard(),
-            SizedBox(
+            const BarGraphCard(),
+            const SizedBox(
               height: 18,
             ),
+            if (Responsive.isTablet(context)) const SummaryWidget(),
           ],
         ),
       ),

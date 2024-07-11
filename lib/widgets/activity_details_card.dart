@@ -1,6 +1,7 @@
 import 'package:dashboard_ui_example/data/health_details.dart';
 import 'package:flutter/material.dart';
 
+import '../util/responsive.dart';
 import 'custom_card_widget.dart';
 
 class ActivityDetailsCard extends StatelessWidget {
@@ -13,9 +14,10 @@ class ActivityDetailsCard extends StatelessWidget {
       itemCount: healthDetail.healthData.length,
       shrinkWrap: true,
       physics: const ScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        crossAxisSpacing: 15,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //si c'est un phone
+        crossAxisCount: Responsive.isMobile(context) ? 2 : 4,
+        crossAxisSpacing: Responsive.isMobile(context) ? 12 : 15,
         mainAxisSpacing: 12,
       ),
       itemBuilder: (context, index) => CustomCard(
