@@ -21,10 +21,11 @@ class Chart extends StatelessWidget {
               sectionsSpace: 0,
               centerSpaceRadius: 70,
               startDegreeOffset: -90,
+              //
               sections: pieChartData.paiChartSelectionDatas,
             ),
           ),
-          //
+          //à l'interieur du pie chart
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
